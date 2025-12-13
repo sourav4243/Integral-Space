@@ -21,8 +21,8 @@ const rubicdistressed = Rubik_Distressed({
 
 export const Nav = () => {
     return (
-        <nav className="flex flex-col w-full max-w-4xl h-fit justify-center items-center my-4 pt-4 pb-8 px-8 bg-white dark:bg-slate-950/70 opacity-85 backdrop-blur-xl border border-gray-400/70">
-            <div className="p-2 border border-black bg-slate-800/40">    
+        <nav className="flex flex-col w-full max-w-4xl h-fit justify-center items-center my-4 pt-4 pb-8 px-8 bg-white dark:bg-slate-950/70 opacity-85 border border-gray-400/70">
+            <div className="p-2 border border-black bg-slate-800/40 pixel-grid">    
                 <Image 
                     src="/Integral-space.jpg"
                     width={850}
