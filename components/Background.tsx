@@ -39,17 +39,10 @@ export default function Background() {
           --primary-color: #a8d1ff;
         }
 
-        /* page baseline for demo - remove if you already have body styles */
-        html,
-        body,
-        #__next {
-          height: 100%;
-        }
-
         body {
           margin: 0;
           min-height: 100vh;
-          background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+          background: radial-gradient(ellipse at bottom, #040a1c 0%, #0c0d13 100%);
           overflow: hidden;
         }
 
