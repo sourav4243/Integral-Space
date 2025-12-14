@@ -33,7 +33,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                         <TerminalIcon size={20} className="relative -bottom-1"/>
                         <h1 className="text-lg font-bold">Who am I?</h1>
                     </div>
-                    <p className="text-slate-500 text-sm">A developer, sketch artist, and digital architect working on my skills. I code, sketch stuff, and occasionally idle.
+                    <p className="text-slate-500 text-sm">I'm Sourav. A developer, sketch artist, and digital architect working on my skills. I code, sketch stuff, and occasionally idle.
                         <br/>This site changes as I work on things and experiment with ideas. The log page reflect that state.
                     </p>
                 </div>
