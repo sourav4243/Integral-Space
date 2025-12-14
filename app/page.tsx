@@ -1,19 +1,105 @@
+"use client"; // Ensure this is at the top since we use state
+
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion"; // For the exit animation
+
 import { Nav } from "@/components/Nav";
 import { Main } from "@/components/Main";
 import MatrixRain from "@/components/MatrixRain";
+import { MusicPlayer } from "@/components/MusicPlayer";
+import SystemFetch from "@/components/SystemFetch";
+import GifShrine from "@/components/GifShrine";
+import ArtistCorner from "@/components/ArtistCorner";
+import Spiderman from "@/components/Spiderman";
+import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="flex justify-between h-screen w-full bg-zinc-50 dark:bg-slate-950/10 pixel-grid fixed">
-      <div className="hidden md:block w-[20vw] h-[50vh] m-4 shadow-[3px_3px_0px_0px_#0e1526] border border-gray-400/70">
-        <div className="w-full h-full dark:bg-slate-950/70 pixel-grid" >
-          <MatrixRain/>
-        </div>
-      </div>
 
-      <div className="flex-1 flex-col">
-        <Nav/>
-        <Main/>
+  const [isSpideyHere, setIsSpideyHere] = useState(false);
+
+  return (
+    <div className="relative h-screen w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
+
+      <AnimatePresence>
+        {isSpideyHere && <Spiderman onClose={() => setIsSpideyHere(false)} />}
+      </AnimatePresence>
+
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20"
+        style={{ backgroundImage: 'radial-gradient(#475569 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      </div>
+      <div className="absolute inset-0 z-50 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-size-[100%_4px,6px_100%]" />
+
+      <div className="relative z-10 h-full p-4 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        {/* LEFT PANEL */}
+        <div className="hidden lg:flex flex-col col-span-3 gap-6 h-full overflow-hidden scrollbar-none pb-10">
+          <div className="h-86 w-full shrink-0 border border-slate-800 bg-slate-900/80 shadow-md">
+            <MatrixRain />
+          </div>
+
+          <div className="shrink-0 transform hover:scale-[1.02] transition-transform duration-300 relative">
+            <div className="flex items-center gap-2 mb-1 px-1">
+              <span className="font-mono text-md font-bold text-white uppercase tracking-widest border-b-2 border-red-400/20 pb-1 w-full">
+                My Sketchbook
+              </span>
+            </div>
+            <ArtistCorner />
+          </div>
+          <div className="p-4 border-l-2 border-slate-700 bg-slate-900/30 text-[15px] text-slate-500 font-serif italic">
+            "Does this page feels Janky? Well..I missed the part where that's my problem"
+          </div>
+        </div>
+
+        {/* CENTER PANEL */}
+        <div className="col-span-1 lg:col-span-6 flex flex-col h-full overflow-auto">
+          <div className="shrink-0">
+            <Nav />
+          </div>
+
+          <div className="overflow-y-auto bg-slate-900/80 p-6 relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border border-slate-800">
+            <Main onSummon={() => setIsSpideyHere(true)} />
+          </div>
+        </div>
+
+        {/* RIGHT PANEL */}
+        <div className="hidden lg:flex flex-col col-span-3 gap-4 h-full overflow-none scrollbar-none pb-10">
+          <div className="w-full shrink-0 relative">
+            <MusicPlayer />
+          </div>
+          <div className="w-full shrink-0 border border-slate-800 bg-slate-900/50 p-2 relative shadow-lg">
+            <SystemFetch />
+          </div>
+          <div className="w-fit shrink-0">
+            <GifShrine />
+          </div>
+
+          <div className="flex space-x-3">
+            {/* Bully maguire */}
+            <div className="w-fit shrink-0 mt-1 border bg-amber-300">
+              <Image
+                src="/gifs/bullymaguire.gif"
+                width={150}
+                height={150}
+                alt="bully maguire"
+                unoptimized
+                draggable="false"
+              />
+            </div>
+
+            {/* Momo */}
+            <div className="w-fit shrink-0 mt-1 flex flex-col items-center border bg-sky-400 p-4">
+              <Image
+                src="/gifs/momo.gif"
+                width={130}
+                height={130}
+                alt="love momo"
+                unoptimized
+                draggable="false"
+              />
+              <p className="text-xs relative -bottom-2 text-slate-600 font-bold select-none">Love Momo 💕</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
