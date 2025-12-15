@@ -12,6 +12,7 @@ import GifShrine from "@/components/GifShrine";
 import ArtistCorner from "@/components/ArtistCorner";
 import Spiderman from "@/components/Spiderman";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -42,6 +43,7 @@ export default function Home() {
               <span className="font-mono text-md font-bold text-white uppercase tracking-widest border-b-2 border-red-400/20 pb-1 w-full">
                 My Sketchbook
               </span>
+              <span className="font-mono text-sm text-blue-300/80 underline"><Link href="https://www.instagram.com/art.sourav.19/" target="_blank">@art.sourav.19</Link></span>
             </div>
             <ArtistCorner />
           </div>
