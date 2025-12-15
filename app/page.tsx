@@ -19,7 +19,7 @@ export default function Home() {
   const [isSpideyHere, setIsSpideyHere] = useState(false);
 
   return (
-    <div className="relative h-screen w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
+    <div className="relative overflow-y-hidden h-screen w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
 
       <AnimatePresence>
         {isSpideyHere && <Spiderman onClose={() => setIsSpideyHere(false)} />}
