@@ -28,7 +28,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
             
 
             <div className="flex-1 flex flex-col gap-4">                
-                <div className="md:col-span-1 h-32 w-full border border-slate-800 bg-slate-900/30 flex flex-col justify-center p-4 relative overflow-hidden select-none">
+                <div className="md:col-span-1 h-fit w-full border border-slate-800 bg-slate-900/30 flex flex-col justify-center p-4 relative overflow-hidden select-none">
                     <div className="flex space-x-1 mb-1">
                         <TerminalIcon size={20} className="relative -bottom-1"/>
                         <h1 className="text-lg font-bold">Who am I?</h1>
