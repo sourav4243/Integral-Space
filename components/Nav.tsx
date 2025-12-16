@@ -34,7 +34,7 @@ export const Nav = () => {
                 {[
                     { name: 'home', path: '/' },
                     { name: 'projects', path: '/projects' },
-                    { name: 'log', path: '/log' },
+                    { name: 'log', path: '/logs' },
                 ].map((item) => (
                     <li key={item.name} className="group relative">
                         <Link href={item.path} className="block relative px-2 py-1 text-slate-400 transition-all duration-300 group-hover:text-cyan-400 hover:scale-105">
