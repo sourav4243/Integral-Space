@@ -34,7 +34,6 @@ const commitGroups = [
   }
 ];
 
-// --- 2. NEW COMPONENT: Calculates "Time Ago" ---
 function TimeAgo({ timestamp }: { timestamp: string }) {
   const [label, setLabel] = useState("");
 
@@ -59,18 +58,16 @@ function TimeAgo({ timestamp }: { timestamp: string }) {
       if (days < 7) {
         return `${days} day${days > 1 ? 's' : ''} ago`;
       }
-      // If older than 7 days, just show the date
       return past.toLocaleDateString();
     };
 
     setLabel(calculateTimeAgo());
 
-    // Optional: Update every minute so "1 min ago" becomes "2 mins ago" live
     const timer = setInterval(() => setLabel(calculateTimeAgo()), 60000);
     return () => clearInterval(timer);
   }, [timestamp]);
 
-  // Render a placeholder (or the raw date) initially to match server HTML, then swap to relative time
+  // Render a placeholder 
   return <span>{label || "loading..."}</span>;
 }
 
