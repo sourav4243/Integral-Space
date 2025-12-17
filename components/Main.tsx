@@ -78,7 +78,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
 
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="md:col-span-1 h-30 w-full border border-slate-800 bg-slate-900/30 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+                    <div className="w-45 md:col-span-1 h-30 border border-slate-800 bg-slate-900/30 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
                         <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-400/80"></div>
                         <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-red-400/80"></div>
                         <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-red-400/80"></div>

@@ -27,6 +27,7 @@ export const Nav = () => {
                     alt="banner"
                     className="w-full h-auto opacity-90"
                     draggable="false"
+                    priority
                 />
             </div>
 

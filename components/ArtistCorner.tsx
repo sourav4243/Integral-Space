@@ -116,7 +116,7 @@ export default function ArtistCorner() {
                 width={500}
                 height={0}
                 className="w-[18vw] h-auto object-contain"
-                priority={currentIndex === 1}
+                priority
                 draggable={false}
              />
         </div>
