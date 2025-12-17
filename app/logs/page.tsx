@@ -180,7 +180,15 @@ export default function Logs() {
                 </div>
             ))}
         </div>
+        <div className="text-center py-5 text-[#30363d] text-sm select-none">
+            Buttons are not working? lol it's just a static page
+        </div>
       </div>
+      <style jsx global>{`
+        html, body {
+            background-color: #0d1117; /* Matches the GitHub Dark color so overscroll looks seamless */
+        }
+      `}</style>
     </div>
   );
 }
