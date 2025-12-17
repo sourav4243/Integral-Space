@@ -12,26 +12,11 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
-    date: "Dec 16, 2025",
+    date: "Dec 17, 2025",
     commits: [
-      { id: "9cf883a", message: "refactor(core): switch to zsh-style cli architecture", author: "sourav4243", timestamp: "2025-12-16T14:30:00", verified: true },
-      { id: "c466f0f", message: "feat: add github actions workflow for next.js deployment", author: "sourav4243", timestamp: "2025-12-16T12:00:00", verified: true },
+      { id: "b7e4c2a", message: "feat: initialize CHIP-8 virtual machine emulator", author: "sourav4243", timestamp: "2025-12-17T21:33:00", verified: true }
     ]
   },
-  {
-    date: "Dec 15, 2025",
-    commits: [
-      { id: "9f036f7", message: "chore: create CNAME for custom domain", author: "sourav4243", timestamp: "2025-12-15T09:00:00", verified: true },
-      { id: "f5563cb", message: "style: add folder icon and terminal wallpaper assets", author: "sourav4243", timestamp: "2025-12-15T08:45:00", verified: false },
-      { id: "50b053c", message: "feat(projects): add terminal mode for desktop and accordion view for mobile", author: "sourav4243", timestamp: "2025-12-15T08:00:00", verified: false },
-    ]
-  },
-  {
-    date: "Dec 10, 2025",
-    commits: [
-      { id: "6376f71", message: "fix: resolve bvh traversal cache miss in ray tracer", author: "sourav4243", timestamp: "2025-12-10T18:30:00", verified: true },
-    ]
-  }
 ];
 
 function TimeAgo({ timestamp }: { timestamp: string }) {
