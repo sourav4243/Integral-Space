@@ -8,45 +8,82 @@ import {
   PlayCircle, Layout, Book, Shield, LineChart, Settings 
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
     date: "Dec 16, 2025",
     commits: [
-      { id: "9cf883a", message: "refactor(core): switch to zsh-style cli architecture", author: "sourav4243", time: "6 hours ago", verified: true },
-      { id: "c466f0f", message: "feat: add github actions workflow for next.js deployment", author: "sourav4243", time: "8 hours ago", verified: true },
+      { id: "9cf883a", message: "refactor(core): switch to zsh-style cli architecture", author: "sourav4243", timestamp: "2025-12-16T14:30:00", verified: true },
+      { id: "c466f0f", message: "feat: add github actions workflow for next.js deployment", author: "sourav4243", timestamp: "2025-12-16T12:00:00", verified: true },
     ]
   },
   {
     date: "Dec 15, 2025",
     commits: [
-      { id: "9f036f7", message: "chore: create CNAME for custom domain", author: "sourav4243", time: "yesterday", verified: true },
-      { id: "f5563cb", message: "style: add folder icon and terminal wallpaper assets", author: "sourav4243", time: "yesterday", verified: false },
-      { id: "50b053c", message: "feat(projects): add terminal mode for desktop and accordion view for mobile", author: "sourav4243", time: "yesterday", verified: false },
+      { id: "9f036f7", message: "chore: create CNAME for custom domain", author: "sourav4243", timestamp: "2025-12-15T09:00:00", verified: true },
+      { id: "f5563cb", message: "style: add folder icon and terminal wallpaper assets", author: "sourav4243", timestamp: "2025-12-15T08:45:00", verified: false },
+      { id: "50b053c", message: "feat(projects): add terminal mode for desktop and accordion view for mobile", author: "sourav4243", timestamp: "2025-12-15T08:00:00", verified: false },
     ]
   },
   {
     date: "Dec 10, 2025",
     commits: [
-      { id: "6376f71", message: "fix: resolve bvh traversal cache miss in ray tracer", author: "sourav4243", time: "5 days ago", verified: true },
+      { id: "6376f71", message: "fix: resolve bvh traversal cache miss in ray tracer", author: "sourav4243", timestamp: "2025-12-10T18:30:00", verified: true },
     ]
   }
 ];
 
+// --- 2. NEW COMPONENT: Calculates "Time Ago" ---
+function TimeAgo({ timestamp }: { timestamp: string }) {
+  const [label, setLabel] = useState("");
+
+  useEffect(() => {
+    const calculateTimeAgo = () => {
+      const now = new Date();
+      const past = new Date(timestamp);
+      const diffInSeconds = Math.floor((now.getTime() - past.getTime()) / 1000);
+
+      if (diffInSeconds < 60) {
+        return "just now";
+      }
+      const minutes = Math.floor(diffInSeconds / 60);
+      if (minutes < 60) {
+        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+      }
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) {
+        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+      }
+      const days = Math.floor(hours / 24);
+      if (days < 7) {
+        return `${days} day${days > 1 ? 's' : ''} ago`;
+      }
+      // If older than 7 days, just show the date
+      return past.toLocaleDateString();
+    };
+
+    setLabel(calculateTimeAgo());
+
+    // Optional: Update every minute so "1 min ago" becomes "2 mins ago" live
+    const timer = setInterval(() => setLabel(calculateTimeAgo()), 60000);
+    return () => clearInterval(timer);
+  }, [timestamp]);
+
+  // Render a placeholder (or the raw date) initially to match server HTML, then swap to relative time
+  return <span>{label || "loading..."}</span>;
+}
+
 export default function Logs() {
   return (
-    <div className="min-h-screen w-full bg-[#0d1117] font-sans text-[#e6edf3]">
+    <div className="min-h-screen w-full bg-[#0d1117] font-sans text-[#e6edf3] overflow-x-hidden">
       
       <header className="bg-[#010409] border-b border-[#30363d] text-[#e6edf3]">
-        
-        {/* ROW 1: Top Bar */}
         <div className="px-4 py-3 flex items-center justify-between gap-4">
-            
             <div className="flex items-center gap-4">
                 <button className="p-1.5 border border-[#30363d] rounded-md text-[#7d8590] hover:text-[#e6edf3]">
                     <Menu size={16} />
                 </button>
-                
                 <div className="flex items-center gap-2 text-sm md:text-md whitespace-nowrap">
                    <Link href="/" className="hover:text-[#58a6ff]">sourav4243</Link>
                    <span className="text-[#7d8590]">/</span>
@@ -54,7 +91,6 @@ export default function Logs() {
                    <span className="hidden sm:inline-block px-2 py-0.5 text-xs border border-[#30363d] rounded-full text-[#7d8590] font-medium ml-2">Public</span>
                 </div>
             </div>
-
 
             <div className="flex items-center gap-3">
                 <div className="hidden md:flex items-center bg-[#0d1117] border border-[#30363d] rounded-md px-2 py-1 text-xs text-[#7d8590] w-48 lg:w-64">
@@ -68,16 +104,13 @@ export default function Logs() {
                     <button className="text-[#e6edf3] hover:text-[#7d8590]"><CircleDot size={16} /></button>
                     <button className="text-[#e6edf3] hover:text-[#7d8590]"><GitPullRequest size={16} /></button>
                     <button className="text-[#e6edf3] hover:text-[#7d8590]"><Inbox size={16} /></button>
-                    
-                    {/* Avatar Circle */}
                     <div className="w-5 h-5 rounded-full bg-gray-600 border border-[#e6edf3] ml-1"></div>
                 </div>
             </div>
         </div>
 
-        {/* ROW 2: Navigation Tabs */}
-        <div className="px-4 pt-2 overflow-x-hidden scrollbar-hide">
-            <div className="flex gap-1 text-sm">
+        <div className="px-4 pt-2 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-1 text-sm min-w-max">
                <NavItem icon={<Code size={16}/>} label="Code" active />
                <NavItem icon={<CircleDot size={16}/>} label="Issues" />
                <NavItem icon={<GitPullRequest size={16}/>} label="Pull requests" />
@@ -91,10 +124,8 @@ export default function Logs() {
         </div>
       </header>
 
-
-      {/* MAIN PAGE CONTENT*/}
+      {/* MAIN CONTENT */}
       <div className="p-4 md:p-8 lg:p-12 max-w-6xl mx-auto">
-        
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <h1 className="text-2xl font-semibold">Commits</h1>
             <div className="flex items-center gap-2">
@@ -110,16 +141,10 @@ export default function Logs() {
             </div>
         </div>
 
-        {/* Timeline Container */}
         <div className="relative pl-0 md:pl-4">
-            
-            {/* Vertical Line */}
             <div className="absolute left-[7px] md:left-2.5 top-0 bottom-0 w-0.5 bg-[#30363d] z-0 hidden md:block"></div>
-
             {commitGroups.map((group, groupIndex) => (
                 <div key={groupIndex} className="relative z-10 mb-8">
-                    
-                    {/* Date Header */}
                     <div className="flex items-center gap-2 mb-2.5 md:-ml-5">
                         <div className="w-8 h-8 rounded-full bg-[#0d1117] flex items-center justify-center shrink-0 z-20">
                             <GitCommit size={20} className="text-[#7d8590]" />
@@ -127,7 +152,6 @@ export default function Logs() {
                         <span className="text-md font-medium text-[#7d8590]">Commits on {group.date}</span>
                     </div>
 
-                    {/* Commit Box */}
                     <div className="border border-[#30363d] rounded-md bg-[#0d1117] overflow-hidden shadow-sm">
                         {group.commits.map((commit, i) => (
                             <motion.div 
@@ -137,7 +161,6 @@ export default function Logs() {
                                 transition={{ delay: i * 0.05 }}
                                 className="group flex flex-col md:flex-row md:items-center justify-between p-3 md:p-4 hover:bg-[#161b22] border-b border-[#30363d] last:border-0 transition-colors gap-3 md:gap-0"
                             >
-                                {/* Message & Author */}
                                 <div className="flex flex-col gap-1 min-w-0">
                                     <div className="text-[15px] font-semibold text-[#e6edf3] hover:text-[#58a6ff] cursor-pointer truncate pr-4">
                                         {commit.message}
@@ -147,19 +170,13 @@ export default function Logs() {
                                            <User size={12} className="text-slate-300"/>
                                         </div>
                                         <span className="font-bold text-[#e6edf3]">{commit.author}</span>
-                                        <span>authored {commit.time}</span>
+                                        <span>authored <TimeAgo timestamp={commit.timestamp} /></span>
                                     </div>
                                 </div>
-
-                                {/* Actions & Hash */}
                                 <div className="flex items-center gap-3 shrink-0 self-start md:self-auto mt-2 md:mt-0">
                                     <div className="flex items-center gap-1 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button className="p-1.5 text-[#7d8590] hover:text-[#58a6ff] hover:bg-[#1f242c] rounded-md" title="Copy full SHA">
-                                            <Copy size={14} />
-                                        </button>
-                                        <button className="p-1.5 text-[#7d8590] hover:text-[#58a6ff] hover:bg-[#1f242c] rounded-md" title="Browse repository at this point">
-                                            <Code size={14} />
-                                        </button>
+                                        <button className="p-1.5 text-[#7d8590] hover:text-[#58a6ff] hover:bg-[#1f242c] rounded-md"><Copy size={14} /></button>
+                                        <button className="p-1.5 text-[#7d8590] hover:text-[#58a6ff] hover:bg-[#1f242c] rounded-md"><Code size={14} /></button>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         {commit.verified && (
