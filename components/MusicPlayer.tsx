@@ -20,10 +20,10 @@ export const MusicPlayer = () => {
     useEffect(() => {
         const fetchMusic = async () => {
             try {
-                const API_KEY = process.env.NEXT_PUBLIC_LASTFM_API_KEY;
-                const USERNAME = process.env.NEXT_PUBLIC_LASTFM_USERNAME;
+                const API_KEY = process.env.NEXT_PUBLIC_LASTFM_API_KEY || "API_KEY";
+                const USERNAME = process.env.NEXT_PUBLIC_LASTFM_USERNAME || "sourav4243";
 
-                if (API_KEY === process.env.NEXT_PUBLIC_LASTFM_API_KEY) {
+                if (API_KEY === "API_KEY") {
                     console.warn("Last.fm API Key missing");
                     setLoading(false);
                     return;
