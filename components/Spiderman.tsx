@@ -32,6 +32,7 @@ export default function Spiderman({ onClose }: { onClose: () => void }) {
             height={300}
             className="drop-shadow-2xl select-none"
             draggable="false"
+            priority
             />
 
             <button 
