@@ -48,7 +48,7 @@ export default function Home() {
             <ArtistCorner />
           </div>
           <div className="p-4 border-l-2 border-slate-700 bg-slate-900/30 text-[15px] text-slate-500 font-serif italic">
-            "Does this page feels Janky? Well..I missed the part where that's my problem"
+            "Does this page feels Janky? Well..I missed the part where that's my problem" iykyk
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export default function Home() {
             <Nav />
           </div>
 
-          <div className="overflow-y-auto bg-slate-900/80 p-6 relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border border-slate-800">
+          <div className="overflow-y-auto bg-slate-900/80 p-5 relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border border-slate-800">
             <Main onSummon={() => setIsSpideyHere(true)} />
           </div>
         </div>

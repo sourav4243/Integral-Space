@@ -15,7 +15,7 @@ export default function GifShrine() {
           <span>cool_stuff.gif</span>
         </div>
         <div className="flex space-x-0.5">
-          <div className="w-fit h-55 flex items-center justify-center bg-slate-900 overflow-hidden relative">
+          <div className="w-fit h-48 flex items-center justify-center bg-slate-900 overflow-hidden relative">
             <Image
               src={gifs[0]}
               alt="shrine left"
@@ -27,7 +27,7 @@ export default function GifShrine() {
 
             <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] pointer-events-none" style={{ backgroundSize: '100% 2px' }}></div>
           </div>
-          <div className="w-fit h-55 flex items-center justify-center bg-slate-900 overflow-hidden relative">
+          <div className="w-fit h-48 flex items-center justify-center bg-slate-900 overflow-hidden relative">
             <Image
               src={gifs[1]}
               alt="shrine left"

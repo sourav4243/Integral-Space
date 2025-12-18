@@ -36,7 +36,7 @@ const SystemFetch = () => {
       <div className="flex gap-4 items-start">
         
         {/* LEFT: The Manjaro Block Logo (CSS Gradient Text) */}
-        <div className="hidden xl:block text-[10px] leading-[1.1] font-bold text-transparent bg-clip-text bg-linear-to-b from-emerald-400 to-cyan-600 opacity-90">
+        <div className="hidden xl:block text-[8px] leading-[1.1] font-bold text-transparent bg-clip-text bg-linear-to-b from-emerald-400 to-cyan-600 opacity-90">
           <pre>{`
 ██████████████████  ████████
 ██████████████████  ████████
@@ -56,7 +56,7 @@ const SystemFetch = () => {
         </div>
 
         {/* RIGHT: The Stats Grid */}
-        <div className="flex-1 space-y-1.5">
+        <div className="flex-1 space-y-1">
           
           {/* OS */}
           <div className="flex justify-between">
@@ -119,7 +119,7 @@ const SystemFetch = () => {
           {/* The "Distro" Flex */}
           <div className="mt-2 pt-2 border-t border-dashed border-slate-800 text-center">
             <span className="text-[10px] text-slate-500 mr-2">BASE:</span>
-            <span className="text-cyan-400 font-bold tracking-widest">ARCH_LINUX</span>
+            <span className="text-cyan-400 font-bold tracking-widest">ARCH LINUX</span>
           </div>
 
         </div>

@@ -69,7 +69,7 @@ export const MusicPlayer = () => {
                 }}
             >
                 {/* header */}
-                <div className='flex justify-between items-center bg-[#1e293b] px-2 py-1 border-b-2 border-[#020617]'>
+                <div className='flex justify-between items-center bg-[#1e293b] px-2 py-0.5 border-b-2 border-[#020617]'>
                     <span className='font-mono text-xs tracking-wider text-slate-300 font-bold ml-1'>
                         Music
                     </span>
@@ -87,9 +87,9 @@ export const MusicPlayer = () => {
                     </div>
                 </div>
 
-                <div className='p-4 flex gap-5'>
-                    <div className='relative shrink-0'>
-                        <div className='w-28 h-28 bg-[#1e1b4b] border-4 border-[#334155] shadow-lg relative overflow-hidden group'>
+                <div className='px-2 flex gap-3'>
+                    <div className='relative shrink-0 flex items-center'>
+                        <div className='w-20 h-20 bg-[#1e1b4b] border-4 border-[#334155] shadow-lg relative overflow-hidden group'>
                             {loading ? (
                                 // Loading Placeholder
                                 <div className='absolute inset-0 flex items-center justify-center bg-indigo-950'>
@@ -120,7 +120,7 @@ export const MusicPlayer = () => {
 
                     {/* Track Info Section */}
                     <div className='flex flex-col flex-1 min-w-0 justify-between py-1'>
-                        <div className='space-y-1'>
+                        <div className='space-y-0.5'>
                             <div className='text-[10px] text-slate-400 font-mono tracking-wide uppercase flex items-center gap-2'>
                                 {loading ? "CONNECTING..." : track?.isPlaying ? (
                                     <span className="text-cyan-400 animate-pulse">● NOW PLAYING</span>
@@ -130,7 +130,7 @@ export const MusicPlayer = () => {
                             </div>
                             
                             {loading ? (
-                                <div className="h-4 w-32 bg-slate-800 animate-pulse rounded"></div>
+                                <div className="h-3 w-32 bg-slate-800 animate-pulse rounded"></div>
                             ) : (
                                 <div className='font-mono text-sm text-cyan-50 truncate'>
                                     <Link 
@@ -145,11 +145,11 @@ export const MusicPlayer = () => {
                                 </div>
                             )}
                         </div>
-                        <div className='flex items-end gap-[3px] h-12 mt-3 pb-1 border-b border-slate-800/50'>
-                            {[40, 60, 45, 70, 90, 60, 50, 40, 30, 45, 55, 65, 50, 40, 30, 20, 15, 10].map((height, i) => (
+                        <div className='flex items-end gap-[3px] h-10 mt-3 pb-1 border-b border-slate-800/50'>
+                            {[40, 60, 45, 70, 90, 60, 50, 40, 30, 45, 55, 65, 50, 40, 30, 20, 15, 17, 25, 40, 40, 30].map((height, i) => (
                                 <div
                                     key={i}
-                                    className={`w-2 opacity-90 ${track?.isPlaying ? 'bg-linear-to-t from-cyan-500 via-teal-400 to-indigo-500 animate-music-bar' : 'bg-slate-700 h-0.5'}`}
+                                    className={`w-1.5 opacity-90 ${track?.isPlaying ? 'bg-linear-to-t from-cyan-500 via-teal-400 to-indigo-500 animate-music-bar' : 'bg-slate-700 h-0.5'}`}
                                     style={{
                                         height: track?.isPlaying ? `${height}%` : '5%', // Flat line if not playing
                                         animationDelay: `${i * 0.05}s`,

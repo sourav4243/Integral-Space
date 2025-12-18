@@ -12,7 +12,7 @@ const rubicdistressed = Rubik_Distressed({
 export const Nav = () => {
     return (
         <nav
-            className="flex flex-col w-full h-fit items-center mb-6 p-4 bg-slate-900/80 backdrop-blur-sm select-none"
+            className="flex flex-col w-full h-fit items-center mb-6 p-5 bg-slate-900/80 backdrop-blur-sm select-none"
             style={{
                 boxShadow: 'inset 0 0 0 1px #1e293b, 0 4px 6px -1px rgba(0, 0, 0, 0.5)'
             }}
@@ -23,7 +23,7 @@ export const Nav = () => {
                 <Image
                     src="/Integral-space.jpg"
                     width={850}
-                    height={40}
+                    height={35}
                     alt="banner"
                     className="w-full h-auto opacity-90"
                     draggable="false"
@@ -31,14 +31,14 @@ export const Nav = () => {
                 />
             </div>
 
-            <ul className={`${rubicdistressed.className} flex flex-wrap justify-center gap-4 sm:gap-8 text-xl sm:text-2xl mt-2`}>
+            <ul className={`${rubicdistressed.className} flex flex-wrap justify-center gap-4 sm:gap-8 text-xl sm:text-2xl`}>
                 {[
                     { name: 'home', path: '/' },
                     { name: 'projects', path: '/projects' },
                     { name: 'log', path: '/logs' },
                 ].map((item) => (
                     <li key={item.name} className="group relative">
-                        <Link href={item.path} className="block relative px-2 py-1 text-slate-400 transition-all duration-300 group-hover:text-cyan-400 hover:scale-105">
+                        <Link href={item.path} className="block relative px-2 py-0 text-slate-400 transition-all duration-300 group-hover:text-cyan-400 hover:scale-105">
                             <span className="relative z-10 text-shadow-sm group-hover:text-shadow-glow underline">
                                 {item.name}
                             </span>
