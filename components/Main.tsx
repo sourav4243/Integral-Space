@@ -109,7 +109,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     </div>
                 </div>
 
-                <div className="p-3 border-t border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
+                <div className="border-t border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
                     <div className="flex gap-4">
                         <span className="flex items-center gap-1 hover:text-cyan-400 cursor-help"><Terminal size={10}/>Hehe</span>
                     </div>
@@ -118,6 +118,17 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Force hide browser scrollbar*/}
+            <style>{`
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+                html, body {
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+            `}</style>
         </main>
     );
 };

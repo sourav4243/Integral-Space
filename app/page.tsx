@@ -19,7 +19,7 @@ export default function Home() {
   const [isSpideyHere, setIsSpideyHere] = useState(false);
 
   return (
-    <div className="relative overflow-y-hidden h-screen w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
+    <div className="relative overflow-y-auto h-full w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
 
       <AnimatePresence>
         {isSpideyHere && <Spiderman onClose={() => setIsSpideyHere(false)} />}
@@ -103,6 +103,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <style>{`
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html, body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+      `}</style>
     </div>
   );
 };
