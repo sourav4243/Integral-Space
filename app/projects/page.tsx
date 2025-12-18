@@ -504,6 +504,11 @@ export default function Projects() {
             )}
           </AnimatePresence>
         </div>
+        <style jsx global>{`
+          html, body {
+              background-color: #020618;
+          }
+        `}</style>
       </div>
     </>
   );
