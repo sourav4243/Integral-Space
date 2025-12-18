@@ -51,7 +51,7 @@ export const MusicPlayer = () => {
         };
 
         fetchMusic();
-        const interval = setInterval(fetchMusic, 5000); // Poll every 5s
+        const interval = setInterval(fetchMusic, 10000); // Poll every 10s
         return () => clearInterval(interval);
     }, []);
 
