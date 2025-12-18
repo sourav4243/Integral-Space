@@ -110,6 +110,7 @@ export default function Home() {
         html, body {
             scrollbar-width: none;
             -ms-overflow-style: none;
+            background-color: #020618;
         }
       `}</style>
     </div>
