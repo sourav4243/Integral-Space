@@ -81,7 +81,7 @@ export default function Logs() {
                     <Menu size={16} />
                 </button>
                 <div className="flex items-center gap-2 text-sm md:text-md whitespace-nowrap">
-                   <Link href="/" className="hover:text-[#58a6ff]">sourav4243</Link>
+                   <Link href="https://github.com/sourav4243?tab=repositories" target="_blank" className="hover:text-[#58a6ff]">sourav4243</Link>
                    <span className="text-[#7d8590]">/</span>
                    <Link href="/" className="font-bold hover:text-[#58a6ff]">Integral-Space</Link>
                    <span className="hidden sm:inline-block px-2 py-0.5 text-xs border border-[#30363d] rounded-full text-[#7d8590] font-medium ml-2">Public</span>
