@@ -20,6 +20,16 @@ const font = Rubik({
 //  project data
 const projects = [
   {
+    id: 0,
+    title: "CHIP8_Emulator",
+    desc: "A low-level CHIP-8 virtual machine implemented from scratch in C++. Includes full CPU emulation, opcode decoding, memory/register management, timers, input handling, and SDL-based rendering.",
+    tech: ["C++", "SDL3", "Bitwise Operations", "Emulation"],
+    status: "COMPLETED",
+    type: "SYSTEMS",
+    links: { github: "https://github.com/sourav4243/chip8-emulator", demo: "" },
+    icon: <Cpu size={24} className="text-cyan-400" />
+  },
+  {
     id: 1,
     title: "Ray_Tracer",
     desc: "A physically-based rendering engine built from scratch in C++. Features BVH acceleration, global illumination, and material systems.",
