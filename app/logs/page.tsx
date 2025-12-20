@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Dec 20, 2025",
+    commits: [
+      { id: "beaeffe", message: "feat(emulator): implement ROM loading logic and text-based debug rendering in CHIP-8 emulator", author: "sourav4243", timestamp: "2025-12-20T10:31:00", verified: true }
+    ]
+  },
+  {
     date: "Dec 19, 2025",
     commits: [
       { id: "e83ac1f", message: "feat(cpu): implement opcode fetch-decode-execute cycle with core CHIP-8 instructions", author: "sourav4243", timestamp: "2025-12-19T07:00:00", verified: true }
