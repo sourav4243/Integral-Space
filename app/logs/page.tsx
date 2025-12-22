@@ -12,6 +12,13 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Dec 22, 2025",
+    commits: [
+      { id: "c3a91f4", message: "chore(learning): start deep learning", author: "sourav4243", timestamp: "2025-12-22T22:59:00", verified: true }
+    ]
+  },
+
+  {
     date: "Dec 20, 2025",
     commits: [
       { id: "01dc0f6", message: "feat(emulator): complete CHIP-8 emulator with SDL3 rendering, input handling, and ROM execution", author: "sourav4243", timestamp: "2025-12-20T19:08:00", verified: true },
