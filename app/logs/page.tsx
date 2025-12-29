@@ -12,6 +12,14 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Dec 29, 2025",
+    commits: [
+      { id: "7b92fd1", message: "feat(automation): enrich articles using search-based scraping and LLM rewriting", author: "sourav4243", timestamp: "2025-12-29T20:12:00", verified: true },
+      { id: "e41a9c2", message: "feat(backend): scraped BeyondChats blogs and exposed article CRUD APIs", author: "sourav4243", timestamp: "2025-12-29T18:52:00", verified: true }
+    ]
+  },
+
+  {
     date: "Dec 22, 2025",
     commits: [
       { id: "c3a91f4", message: "chore(learning): start deep learning", author: "sourav4243", timestamp: "2025-12-22T22:59:00", verified: true }
