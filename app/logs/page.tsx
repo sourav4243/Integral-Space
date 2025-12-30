@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Dec 30, 2025",
+    commits: [
+      { id: "c3e8a41", message: "feat(frontend): build React + Tailwind dashboard for original vs AI-processed article comparison", author: "sourav4243", timestamp: "2025-12-30T20:29:00", verified: true }
+    ]
+  },
+  {
     date: "Dec 29, 2025",
     commits: [
       { id: "7b92fd1", message: "feat(automation): enrich articles using search-based scraping and LLM rewriting", author: "sourav4243", timestamp: "2025-12-29T20:12:00", verified: true },
