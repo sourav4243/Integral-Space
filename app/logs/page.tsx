@@ -12,9 +12,15 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Jan 3, 2026",
+    commits: [
+      { id: "d12fa10", message: "feat: add db to cgg", author: "sourav4243", timestamp: "2026-01-03T23:07:00", verified: true }
+    ]
+  },
+  {
     date: "Jan 2, 2026",
     commits: [
-      { id: "a7f2d9c", message: "contrib: added SQLite schema migrations through PR", author: "sourav4243", timestamp: "2025-01-02T16:40:00", verified: true }
+      { id: "a7f2d9c", message: "contrib: added SQLite schema migrations through PR", author: "sourav4243", timestamp: "2026-01-02T16:40:00", verified: true }
     ]
   },
   {
