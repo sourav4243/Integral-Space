@@ -225,7 +225,7 @@ const TerminalMode = ({ onClose }: { onClose: () => void }) => {
       className="fixed inset-0 z-100 bg-black p-6 font-mono overflow-y-auto text-sm md:text-base"
       onClick={() => inputRef.current?.focus()}
     >
-      <Image src="/wallpaper.jpg" width={100} height={0} className="w-full h-full inset-0 object-cover fixed -z-100" alt="wallpaper" unoptimized priority />
+      <Image src="/wallpaper.jpg" width={100} height={0} className="w-full h-full inset-0 object-cover fixed -z-100" alt="wallpaper" priority />
       <div className="max-w-6xl w-full p-6 border-2 border-black/10 bg-slate-950/60 mx-auto min-h-full flex flex-col backdrop-blur-md shadow-[0px_0px_30px_1px_#000000] rounded-3xl">
         {/* Output History */}
         <div className="space-y-2 mb-4">
