@@ -23,6 +23,7 @@ export default function GifShrine() {
               height={150}
               width={150}
               draggable="false"
+              unoptimized
             />
 
             <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] pointer-events-none" style={{ backgroundSize: '100% 2px' }}></div>
@@ -35,6 +36,7 @@ export default function GifShrine() {
               height={150}
               width={150}
               draggable="false"
+              unoptimized
             />
 
             <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] pointer-events-none" style={{ backgroundSize: '100% 2px' }}></div>
