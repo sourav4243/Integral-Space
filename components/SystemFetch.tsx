@@ -36,22 +36,16 @@ const SystemFetch = () => {
       <div className="flex gap-4 items-start">
         
         {/* LEFT: The Manjaro Block Logo (CSS Gradient Text) */}
-        <div className="hidden xl:block text-[8px] leading-[1.1] font-bold text-transparent bg-clip-text bg-linear-to-b from-emerald-400 to-cyan-600 opacity-90">
+        <div className="hidden xl:block text-[16px] leading-[1.1] font-bold text-transparent bg-clip-text bg-linear-to-b from-emerald-400 to-cyan-600 opacity-90">
           <pre>{`
-██████████████████  ████████
-██████████████████  ████████
-██████████████████  ████████
-██████████████████  ████████
-████████            ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
-████████  ████████  ████████
+
+        /\\       
+       /  \\     
+      /\\   \\     
+     / > ω <\\    
+    /   __   \\   
+   / __|  |__-\\  
+  /_-''    ''-_\\ 
         `}</pre>
         </div>
 
