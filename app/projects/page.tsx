@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   ArrowLeft, ExternalLink, Github, Cpu, Layers, Terminal,
   Smartphone, Network, Database, Music, Wallet, Folder,
-  FileCode, ChevronRight, ChevronDown,
+  FileCode, ChevronRight, ChevronDown, FileVideo,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -21,6 +21,15 @@ const font = Rubik({
 const projects = [
   {
     id: 0,
+    title: "sift-video",
+    desc: "Semantic video search system that indexes audio and visual content to enable timestamp-accurate retrieval inside videos using natural language queries.",
+    tech: ["C++", "Rust", "FFmpeg", "whisper.cpp", "CLIP", "VectorDB", "Docker"],
+    status: "RUNNING",
+    links: { github: "https://github.com/sourav4243/sift-video", demo: ""},
+    icon: <FileVideo size={24} className="text-cyan-500"/>
+  },
+  {
+    id: 1,
     title: "CHIP8_Emulator",
     desc: "A low-level CHIP-8 virtual machine implemented from scratch in C++. Includes full CPU emulation, opcode decoding, memory/register management, timers, input handling, and SDL-based rendering.",
     tech: ["C++", "SDL3", "Bitwise Operations", "Emulation"],
@@ -30,7 +39,7 @@ const projects = [
     icon: <Cpu size={24} className="text-cyan-400" />
   },
   {
-    id: 1,
+    id: 2,
     title: "Ray_Tracer",
     desc: "A physically-based rendering engine built from scratch in C++. Features BVH acceleration, global illumination, and material systems.",
     tech: ["C++", "Linear Algebra"],
@@ -40,7 +49,7 @@ const projects = [
     icon: <Cpu size={24} className="text-blue-400" />
   },
   {
-    id: 2,
+    id: 3,
     title: "TheFlowMind",
     desc: "Collaborative mind-mapping tool with a digital canvas. Real-time syncing and infinite whiteboard capabilities.",
     tech: ["Next.js", "Liveblocks", "Convex", "Tailwind"],
@@ -50,7 +59,7 @@ const projects = [
     icon: <Layers size={24} className="text-yellow-400" />
   },
   {
-    id: 3,
+    id: 4,
     title: "Integral_Space",
     desc: "The retro-futuristic portfolio you are looking at right now. Designed as a web-based operating system.",
     tech: ["Next.js", "Framer Motion", "Pixel Art", "TypeScript"],
@@ -60,7 +69,7 @@ const projects = [
     icon: <Terminal size={24} className="text-emerald-400" />
   },
   {
-    id: 4,
+    id: 5,
     title: "MyKeyboard",
     desc: "A custom Android keyboard built with Kotlin. Focuses on privacy, speed, and custom layout configurations.",
     tech: ["Kotlin", "Android SDK", "XML"],
@@ -70,7 +79,7 @@ const projects = [
     icon: <Smartphone size={24} className="text-purple-400" />
   },
   {
-    id: 5,
+    id: 6,
     title: "Federated_Learning_Simulation",
     desc: "A simulation framework demonstrating privacy-preserving AI training. Models are trained locally on independent nodes and aggregated globally without data sharing.",
     tech: ["Python", "Scikit-Learn", "XGBoost", "Next.js"],
@@ -80,7 +89,7 @@ const projects = [
     icon: <Network size={24} className="text-orange-400" />
   },
   {
-    id: 6,
+    id: 7,
     title: "CineMaa",
     desc: "A content-based movie recommendation system. Uses vectorization and cosine similarity to analyze metadata and suggest similar films.",
     tech: ["Python", "Jupyter", "Scikit-Learn"],
@@ -90,7 +99,7 @@ const projects = [
     icon: <Database size={24} className="text-red-400" />
   },
   {
-    id: 7,
+    id: 8,
     title: "A_Music_Player",
     desc: "A lightweight, offline audio player focusing on minimalism and high-fidelity playback.",
     tech: ["HTML", "CSS", "Vanilla JS"],
@@ -100,7 +109,7 @@ const projects = [
     icon: <Music size={24} className="text-pink-400" />
   },
   {
-    id: 8,
+    id: 9,
     title: "PennyWise",
     desc: "A smart expense tracker application designed to help users manage finances, visualize spending habits, and plan budgets effectively.",
     tech: ["Kotlin", "Android SDK", "Firebase", "Gemini-AI"],
