@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Jan 17, 2026",
+    commits: [
+      { id: "be903df", message: "feat(sift-video): start new project sift-video", author:"sourav4243", timestamp: "2026-01-17T14:56:00", verified: true}
+    ]
+  },
+  {
     date: "Jan 12, 2026",
     commits: [
       { id: "9de4f01", message: "feat: work on BVH acceleration in the RayTracer project", author:"sourav4243", timestamp: "2026-01-12T22:56:00", verified: true}
@@ -20,7 +26,7 @@ const commitGroups = [
   {
     date: "Jan 7, 2026",
     commits: [
-      { id: "e29ad3b", message: "chore(todo): solve 5 leetcode ques daily", author:"sourav4243", timestamp: "2026-01-07T08:10:00", verified: false}
+      { id: "e29ad3b", message: "chore(todo): solve 5 leetcode ques daily", author:"sourav4243", timestamp: "2026-01-07T08:10:00", verified: true}
     ]
   },
   {
