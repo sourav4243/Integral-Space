@@ -25,6 +25,7 @@ const projects = [
     desc: "Semantic video search system that indexes audio and visual content to enable timestamp-accurate retrieval inside videos using natural language queries.",
     tech: ["C++", "Rust", "FFmpeg", "whisper.cpp", "CLIP", "VectorDB", "Docker"],
     status: "RUNNING",
+    type: "SYSTEMS",
     links: { github: "https://github.com/sourav4243/sift-video", demo: ""},
     icon: <FileVideo size={24} className="text-cyan-500"/>
   },
