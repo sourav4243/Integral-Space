@@ -18,6 +18,12 @@ const commitGroups = [
     ]
   },
   {
+    date: "Jan 7, 2026",
+    commits: [
+      { id: "e29ad3b", message: "chore(todo): solve 5 leetcode ques daily", author:"sourav4243", timestamp: "2026-01-07T08:10:00", verified: false}
+    ]
+  },
+  {
     date: "Jan 3, 2026",
     commits: [
       { id: "d12fa10", message: "feat: add db to cgg", author: "sourav4243", timestamp: "2026-01-03T23:07:00", verified: true }
