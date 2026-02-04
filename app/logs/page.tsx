@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Feb 3, 2026", 
+    commits: [
+      { id: "aef06c9", message: "cp: start solving problems on CodeForces", author: "sourav4243", timestamp: "2026-02-03T23:15:00", verified: false}
+    ]
+  },
+  {
     date: "Jan 25, 2026",
     commits: [
       { id: "cd11e0a", message: "feat(sift-video): add full video-to-transcript pipeline in sift-video project", author:"sourav4243", timestamp: "2026-01-25T19:00:00", verified: true}
