@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Feb 5, 2026", 
+    commits: [
+      { id: "de3fec0", message: "feat(rayTracer): apply longest axis split in BVH", author: "sourav4243", timestamp: "2026-02-05T19:34:00", verified: true}
+    ]
+  },
+  {
     date: "Feb 3, 2026", 
     commits: [
       { id: "aef06c9", message: "cp: start solving problems on CodeForces", author: "sourav4243", timestamp: "2026-02-03T23:15:00", verified: false}
