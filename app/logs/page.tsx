@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Feb 10, 2026", 
+    commits: [
+      { id: "82ced24", message: "feat(rayTracer): add multi-thread rendering", author: "sourav4243", timestamp: "2026-02-010T01:50:00", verified: true}
+    ]
+  },
+  {
     date: "Feb 5, 2026", 
     commits: [
       { id: "de3fec0", message: "feat(rayTracer): apply longest axis split in BVH", author: "sourav4243", timestamp: "2026-02-05T19:34:00", verified: true}
