@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Feb 15, 2026", 
+    commits: [
+      { id: "f92c7a1", message: "docs(research): draft ray tracer architecture and performance analysis paper", author: "sourav4243", timestamp: "2026-02-15T23:48:00", verified: true }
+    ]
+  },
+  {
     date: "Feb 10, 2026", 
     commits: [
       { id: "82ced24", message: "feat(rayTracer): add multi-thread rendering", author: "sourav4243", timestamp: "2026-02-010T01:50:00", verified: true}
