@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 type TrackData = {
     isPlaying: boolean;
@@ -133,13 +132,9 @@ export const MusicPlayer = () => {
                                 <div className="h-3 w-32 bg-slate-800 animate-pulse rounded"></div>
                             ) : (
                                 <div className='font-mono text-sm text-cyan-50 truncate'>
-                                    <Link 
-                                        href={track?.url || '#'} 
-                                        target="_blank"
-                                        className='text-cyan-200 font-bold hover:underline hover:text-cyan-400 transition-colors'
-                                    >
+                                    <span className='text-cyan-200 font-bold'>
                                         {track?.name || "OFFLINE"}
-                                    </Link>
+                                    </span>
                                     <span className='text-slate-500 mx-2'>-</span>
                                     <span className='text-slate-400'>{track?.artist || "Unknown"}</span>
                                 </div>
