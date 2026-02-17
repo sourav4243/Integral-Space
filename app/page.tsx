@@ -71,9 +71,9 @@ export default function Home() {
           <div className="w-full shrink-0 border border-slate-800 bg-slate-900/50 p-2 relative shadow-lg">
             <SystemFetch />
           </div>
-          <div className="w-fit shrink-0">
+          {/* <div className="w-fit shrink-0">
             <GifShrine />
-          </div>
+          </div> */}
 
           <div className="flex space-x-3">
             {/* Bully maguire */}
@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             {/* Momo */}
-            <div className="w-fit shrink-0 mt-1 flex flex-col items-center border bg-sky-400 p-4">
+            {/* <div className="w-fit shrink-0 mt-1 flex flex-col items-center border bg-sky-400 p-4">
               <Image
                 src="/gifs/momo.gif"
                 width={130}
@@ -99,7 +99,7 @@ export default function Home() {
                 draggable="false"
               />
               <p className="text-xs relative -bottom-2 text-slate-600 font-bold select-none">Love Momo 💕</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
