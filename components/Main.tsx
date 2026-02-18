@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Clock from "./Clock";
-import { Terminal, Heart, Skull, Ghost, TerminalIcon } from "lucide-react"; 
+import { Terminal, Heart, Skull, Ghost, TerminalIcon, Code2, Cpu } from "lucide-react"; 
 
 export const Main = ({ onSummon }: { onSummon: () => void }) => {
     return (
@@ -28,14 +27,58 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
             
 
             <div className="flex-1 flex flex-col gap-3">                
-                <div className="md:col-span-1 h-fit w-full border border-slate-800 bg-slate-900/30 flex flex-col justify-center p-3 relative overflow-hidden select-none">
-                    <div className="flex space-x-1 mb-1">
-                        <TerminalIcon size={20} className="relative -bottom-1"/>
-                        <h1 className="text-md font-bold">Who am I?</h1>
+                
+                <div className="md:col-span-1 h-fit w-full border border-slate-800 bg-slate-900/30 flex flex-col justify-center p-5 relative overflow-hidden select-none group">
+                    
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29371a_1px,transparent_1px),linear-gradient(to_bottom,#1f29371a_1px,transparent_1px)] bg-size-[24px_24px] opacity-20 pointer-events-none"></div>
+
+                    <div className="flex space-x-2 mb-4 items-center text-cyan-500 relative z-10">
+                        <TerminalIcon size={18} />
+                        <h1 className="text-sm font-bold tracking-wider">Who am I?</h1>
                     </div>
-                    <p className="text-slate-500 text-[14px]">I'm <b className="font-bold text-slate-400/90">Sourav</b>. A developer, sketch artist, and digital architect working on my skills. I code, sketch stuff, and occasionally idle.
-                        <br/>This site changes as I work on things and experiment with ideas. The log page reflect that state.
-                    </p>
+
+                    <div className="relative z-10">
+                        <div className="flex flex-row gap-5 items-start">
+                            
+                            <div className="relative shrink-0">
+                                <Link href="https://github.com/sourav4243" target="_blank" className="group/img relative w-24 h-24 bg-slate-900/50 border-2 border-slate-700 hover:border-cyan-500 transition-all flex items-center justify-center shadow-xl overflow-hidden">
+                                    <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
+                                    <Image 
+                                        src="/git.png" 
+                                        height={60} 
+                                        width={60} 
+                                        alt="git" 
+                                        className="opacity-80 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-300 grayscale group-hover/img:grayscale-0" 
+                                        draggable="false"
+                                    />
+                                </Link>
+                                {/* <div className="absolute -bottom-2 -right-2 bg-slate-800 border border-slate-600 text-[9px] text-cyan-400 px-1.5 py-0.5 font-mono shadow-md">
+                                    LVL. 21
+                                </div> */}
+                            </div>
+
+                            <div className="flex flex-col justify-center pt-1">
+                                <h2 className="font-bold text-slate-100 text-3xl tracking-tight mb-2">Sourav Kumar</h2>
+                                
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="px-2 py-0.5 bg-cyan-950/30 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold font-mono uppercase tracking-wider">
+                                        C++ Developer
+                                    </span>
+                                    <span className="px-2 py-0.5 bg-green-800/20 border border-slate-700 text-green-400/70 text-[10px] font-bold font-mono uppercase tracking-wider">
+                                        Web Developer
+                                    </span>
+                                    <span className="px-2 py-0.5 bg-blue-900/30 border border-slate-700 text-blue-400 text-[10px] font-bold font-mono uppercase tracking-wider">
+                                        Sketch Artist
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p className="text-slate-400 text-[14px] mt-5 leading-relaxed border-t border-slate-800/50 pt-4">
+                            A developer, sketch artist, and digital architect working on my skills. I code, sketch stuff, and occasionally idle.
+                            <br/><span className="text-slate-600 text-xs mt-2 block font-mono"> This site changes as I work on things. Check logs.</span>
+                        </p>
+                    </div>
                 </div>
 
 
@@ -44,36 +87,6 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     <p className="font-mono text-xs text-red-400/80 text-center uppercase tracking-[0.2em] group-hover:text-red-300 transition-colors">
                         ⚠ "With great power, comes great responsibility" ⚠
                     </p>
-                </div>
-
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
-                    <div className="p-3 border border-slate-800 bg-slate-900/20 flex flex-col gap-3 select-none">
-                         <h2 className="text-emerald-400 font-bold text-xs flex items-center gap-2 uppercase tracking-widest">
-                            <Heart size={12} /> Liked_Items
-                         </h2>
-                         <div className="flex flex-wrap gap-2">
-                            {['Momos', 'Masala Dosa', 'Photography', 'C++', 'Music', 'Spiderman', 'Sketching', 'Linux', 'Maths'].map(item => (
-                                <span key={item} className="px-[5px] py-1 bg-emerald-900/20 hover:bg-emerald-900/40 border border-emerald-900/50 hover:border-emerald-900/70 text-emerald-200 text-[10px] rounded-sm">
-                                    + {item}
-                                </span>
-                            ))}
-                         </div>
-                    </div>
-
-                    <div className="p-4 border border-slate-800 bg-slate-900/20 flex flex-col gap-3 select-none">
-                         <h2 className="text-red-400 font-bold text-xs flex items-center gap-2 uppercase tracking-widest">
-                            <Skull size={12} /> System_Errors
-                         </h2>
-                         <div className="flex flex-wrap gap-2">
-                            {['Java', 'Windows', 'Coffee', 'Light Mode', 'Slow Wifi', 'TV Series', 'College-Clubs'].map(item => (
-                                <span key={item} className="px-[5px] py-1 bg-red-900/20 hover:bg-red-900/40 border border-red-900/50 hover:border-red-900/70 text-red-300 text-[10px] rounded-sm line-through decoration-red-500/50 decoration-2">
-                                    {item}
-                                </span>
-                            ))}
-                         </div>
-                    </div>
                 </div>
 
 
@@ -100,12 +113,19 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                          </span>
                     </div>
 
-                    <div className="md:col-span-2 h-30 w-45 relative">
-                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-500"></div>
-                        <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-cyan-500"></div>
-                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-cyan-500"></div>
-                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan-500"></div>
-                        <Clock />
+                    {/* Tech Stack Grid (Restored bg-slate-900/20) */}
+                    <div className="md:col-span-2 border border-slate-800 bg-slate-900/20 p-4 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-2 opacity-10"></div>
+                        <h2 className="text-emerald-500 font-bold text-[10px] flex items-center gap-2 uppercase tracking-widest border-b border-emerald-500/10 pb-2 mb-2">
+                            <Code2 size={12} /> Tech
+                        </h2>
+                        <div className="flex flex-wrap gap-2">
+                             {['C++', 'Next.js', 'React', 'TypeScript', 'Tailwind', 'Linux', 'Git', 'Docker'].map(item => (
+                                <span key={item} className="px-2 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 text-[11px] font-mono hover:border-emerald-500/50 hover:text-emerald-400 transition-colors cursor-crosshair">
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -114,7 +134,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                         <span className="flex items-center gap-1 hover:text-cyan-400 cursor-help"><Terminal size={10}/>Hehe</span>
                     </div>
                     <div className="uppercase tracking-wider opacity-50 hover:text-cyan-400">
-                        v2.0.4 [Stable]
+                        v1.0.2 [Stable]
                     </div>
                 </div>
             </div>
