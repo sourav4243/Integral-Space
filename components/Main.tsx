@@ -11,15 +11,15 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     Connect
                 </div>
 
-                <Link href="https://github.com/sourav4243" target="_blank" className="group relative w-11 h-11 bg-slate-800 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
+                <Link href="https://github.com/sourav4243" target="_blank" className="group relative w-11 h-11 bg-slate-900 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
                     <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <Image src="/git.png" height={27} width={27} alt="git" className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all grayscale group-hover:grayscale-0" draggable="false"/>
+                    <Image src="/git.png" height={30} width={30} alt="git" className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all grayscale group-hover:grayscale-0" draggable="false"/>
                 </Link>
-                <Link href="https://linkedin.com/in/sourav-kumar-56a6482b4" target="_blank" className="group relative w-11 h-11 bg-slate-800 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
+                <Link href="https://linkedin.com/in/sourav-kumar-56a6482b4" target="_blank" className="group relative w-11 h-11 bg-slate-900 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
                     <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <Image src="/linkedin.png" height={27} width={27} alt="linkedin" className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all grayscale group-hover:grayscale-0" draggable="false"/>
+                    <Image src="/linkedin.png" height={30} width={30} alt="linkedin" className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all grayscale group-hover:grayscale-0" draggable="false"/>
                 </Link>
-                <Link href="mailto:souravkumar18835@gmail.com" target="_blank" className="group relative w-11 h-11 bg-slate-800 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
+                <Link href="mailto:souravkumar18835@gmail.com" target="_blank" className="group relative w-11 h-11 bg-slate-900 border-2 border-slate-700 hover:border-cyan-500 hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg">
                     <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <Image src="/mail.png" height={27} width={27} alt="mail" className="opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all grayscale group-hover:grayscale-0" draggable="false"/>
                 </Link>
