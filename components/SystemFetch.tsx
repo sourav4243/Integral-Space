@@ -25,7 +25,7 @@ const SystemFetch = () => {
       
       {/* 1. The Header: User@Host */}
       <div className="flex items-center gap-2 mb-3 border-b border-emerald-900/50 pb-2">
-        <span className="text-emerald-400 font-bold">sourav@manjaro</span>
+        <span className="text-emerald-400 font-bold">sourav@arch</span>
         <span className="text-slate-600">~</span>
         <span className="bg-emerald-500/10 text-emerald-300 px-1 rounded text-[10px]">
           HYPRLAND
@@ -38,7 +38,6 @@ const SystemFetch = () => {
         {/* LEFT: The Manjaro Block Logo (CSS Gradient Text) */}
         <div className="hidden xl:block text-[16px] leading-[1.1] font-bold text-transparent bg-clip-text bg-linear-to-b from-emerald-400 to-cyan-600 opacity-90">
           <pre>{`
-
         /\\       
        /  \\     
       /\\   \\     
@@ -55,7 +54,7 @@ const SystemFetch = () => {
           {/* OS */}
           <div className="flex justify-between">
             <span className="text-emerald-700 font-bold">OS</span>
-            <span className="text-slate-300">Manjaro 25.0.10</span>
+            <span className="text-slate-300">Arch</span>
           </div>
 
           {/* Kernel */}
@@ -102,19 +101,19 @@ const SystemFetch = () => {
           <div className="pt-1">
              <div className="flex justify-between text-[9px] text-slate-500 mb-0.5">
                <span>DISK</span>
-               <span>90G / 116G</span>
+               <span>225G / 1024G</span>
              </div>
              <div className="w-full h-1.5 bg-slate-800 rounded-sm overflow-hidden">
                {/* 82% */}
-               <div className="h-full bg-amber-700 w-[82%]"></div>
+               <div className="h-full bg-amber-700 w-[22%]"></div>
              </div>
           </div>
 
           {/* The "Distro" Flex */}
-          <div className="mt-2 pt-2 border-t border-dashed border-slate-800 text-center">
+          {/* <div className="mt-2 pt-2 border-t border-dashed border-slate-800 text-center">
             <span className="text-[10px] text-slate-500 mr-2">BASE:</span>
             <span className="text-cyan-400 font-bold tracking-widest">ARCH LINUX</span>
-          </div>
+          </div> */}
 
         </div>
       </div>
