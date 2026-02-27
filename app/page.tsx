@@ -71,9 +71,9 @@ export default function Home() {
           <div className="w-full shrink-0 border border-slate-800 bg-slate-900/50 p-2 relative shadow-lg">
             <SystemFetch />
           </div>
-          {/* <div className="w-fit shrink-0">
+          <div className="w-fit shrink-0">
             <GifShrine />
-          </div> */}
+          </div>
 
           <div className="flex space-x-3">
             {/* Bully maguire */}
