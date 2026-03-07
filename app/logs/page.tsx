@@ -12,6 +12,12 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Mar 08, 2026", 
+    commits: [
+      { id: "a8014be", message: "project(LitSync): Release LitSync v1.0.0", author: "sourav4243", timestamp: "2026-03-08T23:48:00", verified: true }
+    ]
+  },
+  {
     date: "Feb 15, 2026", 
     commits: [
       { id: "f92c7a1", message: "docs(research): draft ray tracer architecture and performance analysis paper", author: "sourav4243", timestamp: "2026-02-15T23:48:00", verified: true }
