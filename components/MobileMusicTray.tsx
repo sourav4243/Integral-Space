@@ -6,12 +6,16 @@ import Image from "next/image";
 import { useLastFm } from "@/hooks/useLastFm";
 import { ChevronRight, Music } from "lucide-react";
 
-export const MobileMusicTray = () => {
+type MobileMusicTrayProps = {
+    isExpanded: boolean;
+    setIsExpanded: (expanded: boolean) => void;
+};
+
+export const MobileMusicTray = ({ isExpanded, setIsExpanded }: MobileMusicTrayProps) => {
     const { track, loading } = useLastFm();
-    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <div className="fixed top-[20%] right-0 z-[100] lg:hidden font-mono select-none flex items-start justify-end">
+        <div className="fixed top-[140px] right-0 z-[100] lg:hidden font-mono select-none flex items-start justify-end">
             <motion.div 
                 layout
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
