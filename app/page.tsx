@@ -14,10 +14,12 @@ import Spiderman from "@/components/Spiderman";
 import Image from "next/image";
 import Link from "next/link";
 import { MobileMusicTray } from "@/components/MobileMusicTray";
+import { MobileArtistCornerTray } from "@/components/MobileArtistCornerTray";
 
 export default function Home() {
 
   const [isSpideyHere, setIsSpideyHere] = useState(false);
+  const [activeMobileTray, setActiveMobileTray] = useState<'none' | 'music' | 'artist'>('none');
 
   return (
     <div className="relative overflow-y-auto h-full w-full bg-slate-950 font-mono text-slate-200 selection:bg-pink-500 selection:text-slate-900">
@@ -105,8 +107,22 @@ export default function Home() {
 
       </div>
 
-      {/* MOBILE EDGE TRAY */}
-      <MobileMusicTray />
+      {/* MOBILE EDGE TRAYS - Exclusive State Wrapper */}
+      {activeMobileTray !== 'none' && (
+        <div 
+           className="fixed inset-0 z-[80] lg:hidden" 
+           onClick={() => setActiveMobileTray('none')}
+           aria-hidden="true"
+        />
+      )}
+      <MobileMusicTray 
+         isExpanded={activeMobileTray === 'music'} 
+         setIsExpanded={(val) => setActiveMobileTray(val ? 'music' : 'none')} 
+      />
+      <MobileArtistCornerTray 
+         isExpanded={activeMobileTray === 'artist'} 
+         setIsExpanded={(val) => setActiveMobileTray(val ? 'artist' : 'none')} 
+      />
 
       <style>{`
         ::-webkit-scrollbar {

@@ -115,7 +115,7 @@ export default function ArtistCorner() {
                 alt={`Sketch #${currentIndex}`}
                 width={500}
                 height={0}
-                className="w-[18vw] h-auto object-contain"
+                className="w-48 sm:w-56 lg:w-[18vw] h-auto object-contain"
                 priority
                 draggable={false}
              />
