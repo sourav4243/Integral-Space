@@ -13,6 +13,7 @@ import ArtistCorner from "@/components/ArtistCorner";
 import Spiderman from "@/components/Spiderman";
 import Image from "next/image";
 import Link from "next/link";
+import { MobileMusicTray } from "@/components/MobileMusicTray";
 
 export default function Home() {
 
@@ -87,7 +88,6 @@ export default function Home() {
                 draggable="false"
               />
             </div>
-
             {/* Momo */}
             {/* <div className="w-fit shrink-0 mt-1 flex flex-col items-center border bg-sky-400 p-4">
               <Image
@@ -102,7 +102,12 @@ export default function Home() {
             </div> */}
           </div>
         </div>
+
       </div>
+
+      {/* MOBILE EDGE TRAY */}
+      <MobileMusicTray />
+
       <style>{`
         ::-webkit-scrollbar {
             display: none;
