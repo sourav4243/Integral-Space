@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import { ChevronRight, Paintbrush } from "lucide-react";
 import ArtistCorner from "./ArtistCorner";
 
@@ -12,13 +12,30 @@ type MobileArtistCornerTrayProps = {
 
 export const MobileArtistCornerTray = ({ isExpanded, setIsExpanded }: MobileArtistCornerTrayProps) => {
 
+    const x = useMotionValue(0);
+    const borderTopRightRadius = useTransform(x, [-25, 0], ["16px", "0px"]);
+    const borderBottomRightRadius = useTransform(x, [-25, 0], ["16px", "0px"]);
+    const borderRightWidth = useTransform(x, [-25, 0], ["1px", "0px"]);
+
     return (
-        <div className="fixed top-[350px] right-0 z-[90] lg:hidden font-mono select-none flex items-start justify-end">
+        <div className="fixed top-[350px] right-0 z-90 lg:hidden font-mono select-none flex items-start justify-end">
             <motion.div 
+                style={{ x, borderTopRightRadius, borderBottomRightRadius, borderRightWidth }}
                 layout
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={{ left: isExpanded ? 0 : 0.2, right: isExpanded ? 0.2 : 0 }}
+                onDragEnd={(event, info) => {
+                    if (!isExpanded && (info.offset.x < -20 || info.velocity.x < -200)) {
+                        setIsExpanded(true);
+                    }
+                    if (isExpanded && (info.offset.x > 30 || info.velocity.x > 200)) {
+                        setIsExpanded(false);
+                    }
+                }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 onClick={() => { if (!isExpanded) setIsExpanded(true); }}
-                className={`bg-[#020617]/95 backdrop-blur-md border border-r-0 border-pink-900/40 shadow-[-8px_0_20px_rgba(0,0,0,0.5)] overflow-hidden ${isExpanded ? "rounded-l-3xl" : "rounded-l-2xl cursor-pointer hover:bg-[#0f172a]"}`}
+                className={`bg-[#020617]/95 backdrop-blur-md border border-pink-900/40 shadow-[-8px_0_20px_rgba(0,0,0,0.5)] overflow-hidden ${isExpanded ? "rounded-l-3xl" : "rounded-l-2xl cursor-pointer hover:bg-[#0f172a]"}`}
             >
                 <AnimatePresence mode="wait">
                     {!isExpanded ? (
@@ -32,7 +49,7 @@ export const MobileArtistCornerTray = ({ isExpanded, setIsExpanded }: MobileArti
                         >
                             <Paintbrush className="w-3.5 h-3.5 text-pink-400 shrink-0" />
                             
-                            <div className="max-h-[160px] flex-1 overflow-hidden flex items-center justify-center pointer-events-none">
+                            <div className="max-h-40 flex-1 overflow-hidden flex items-center justify-center pointer-events-none">
                                 <span className="text-[10px] tracking-[0.2em] font-bold text-slate-300 uppercase whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                                     MY SKETCHBOOK
                                 </span>

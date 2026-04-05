@@ -109,19 +109,19 @@ export default function Home() {
 
       {/* MOBILE EDGE TRAYS - Exclusive State Wrapper */}
       {activeMobileTray !== 'none' && (
-        <div 
-           className="fixed inset-0 z-[80] lg:hidden" 
-           onClick={() => setActiveMobileTray('none')}
-           aria-hidden="true"
+        <div
+          className="fixed inset-0 z-80 lg:hidden"
+          onClick={() => setActiveMobileTray('none')}
+          aria-hidden="true"
         />
       )}
-      <MobileMusicTray 
-         isExpanded={activeMobileTray === 'music'} 
-         setIsExpanded={(val) => setActiveMobileTray(val ? 'music' : 'none')} 
+      <MobileMusicTray
+        isExpanded={activeMobileTray === 'music'}
+        setIsExpanded={(val) => setActiveMobileTray(val ? 'music' : 'none')}
       />
-      <MobileArtistCornerTray 
-         isExpanded={activeMobileTray === 'artist'} 
-         setIsExpanded={(val) => setActiveMobileTray(val ? 'artist' : 'none')} 
+      <MobileArtistCornerTray
+        isExpanded={activeMobileTray === 'artist'}
+        setIsExpanded={(val) => setActiveMobileTray(val ? 'artist' : 'none')}
       />
 
       <style>{`

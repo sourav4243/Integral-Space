@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useLastFm } from "@/hooks/useLastFm";
 import { ChevronRight, Music } from "lucide-react";
@@ -13,14 +13,31 @@ type MobileMusicTrayProps = {
 
 export const MobileMusicTray = ({ isExpanded, setIsExpanded }: MobileMusicTrayProps) => {
     const { track, loading } = useLastFm();
+    
+    const x = useMotionValue(0);
+    const borderTopRightRadius = useTransform(x, [-25, 0], ["16px", "0px"]);
+    const borderBottomRightRadius = useTransform(x, [-25, 0], ["16px", "0px"]);
+    const borderRightWidth = useTransform(x, [-25, 0], ["1px", "0px"]);
 
     return (
-        <div className="fixed top-[140px] right-0 z-[100] lg:hidden font-mono select-none flex items-start justify-end">
+        <div className="fixed top-[140px] right-0 z-100 lg:hidden font-mono select-none flex items-start justify-end">
             <motion.div 
+                style={{ x, borderTopRightRadius, borderBottomRightRadius, borderRightWidth }}
                 layout
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={{ left: isExpanded ? 0 : 0.2, right: isExpanded ? 0.2 : 0 }}
+                onDragEnd={(event, info) => {
+                    if (!isExpanded && (info.offset.x < -20 || info.velocity.x < -200)) {
+                        setIsExpanded(true);
+                    }
+                    if (isExpanded && (info.offset.x > 30 || info.velocity.x > 200)) {
+                        setIsExpanded(false);
+                    }
+                }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 onClick={() => { if (!isExpanded) setIsExpanded(true); }}
-                className={`bg-[#020617]/95 backdrop-blur-md border border-r-0 border-cyan-900/50 shadow-[-8px_0_20px_rgba(0,0,0,0.5)] overflow-hidden ${isExpanded ? "rounded-l-2xl" : "rounded-l-2xl cursor-pointer hover:bg-[#0f172a]"}`}
+                className={`bg-[#020617]/95 backdrop-blur-md border border-cyan-900/50 shadow-[-8px_0_20px_rgba(0,0,0,0.5)] overflow-hidden ${isExpanded ? "rounded-l-2xl" : "rounded-l-2xl cursor-pointer hover:bg-[#0f172a]"}`}
             >
                 <AnimatePresence mode="wait">
                     {!isExpanded ? (
@@ -112,7 +129,7 @@ export const MobileMusicTray = ({ isExpanded, setIsExpanded }: MobileMusicTrayPr
                                     </div>
 
                                     {/* Animated Bars */}
-                                    <div className='flex items-end justify-center gap-[4px] h-10 w-full mt-2 border-b border-slate-800/50 pb-2 mb-2'>
+                                    <div className='flex items-end justify-center gap-1 h-10 w-full mt-2 border-b border-slate-800/50 pb-2 mb-2'>
                                         {[20, 60, 45, 80, 50, 60, 40, 20, 30, 45, 55, 65, 40, 30, 20, 40, 80].map((height, i) => (
                                             <div
                                                 key={i}
