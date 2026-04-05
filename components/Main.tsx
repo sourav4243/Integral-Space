@@ -38,7 +38,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     </div>
 
                     <div className="relative z-10">
-                        <div className="flex flex-row gap-5 items-start">
+                        <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left">
 
                             <div className="relative shrink-0">
                                 <Link href="https://github.com/sourav4243" target="_blank" className="group/img relative w-24 h-24 bg-slate-900/50 border-2 border-slate-700 hover:border-cyan-500 transition-all flex items-center justify-center shadow-xl overflow-hidden">
@@ -52,15 +52,12 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                                         draggable="false"
                                     />
                                 </Link>
-                                {/* <div className="absolute -bottom-2 -right-2 bg-slate-800 border border-slate-600 text-[9px] text-cyan-400 px-1.5 py-0.5 font-mono shadow-md">
-                                    LVL. 21
-                                </div> */}
                             </div>
 
-                            <div className="flex flex-col justify-center pt-1">
-                                <h2 className="font-bold text-slate-100 text-3xl tracking-tight mb-2">Sourav Kumar</h2>
+                            <div className="flex flex-col justify-center pt-1 items-center sm:items-start">
+                                <h2 className="font-bold text-slate-100 text-2xl tracking-tight mb-2 pt-0 sm:pt-1">Sourav Kumar</h2>
 
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                                     <span className="px-2 py-0.5 bg-cyan-950/30 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold font-mono uppercase tracking-wider">
                                         C++ Developer
                                     </span>
@@ -91,7 +88,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
 
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="w-45 md:col-span-1 h-30 border border-slate-800 bg-slate-900/30 flex flex-col items-center justify-center gap-2 relative overflow-hidden group">
+                    <div className="hidden md:flex w-full md:col-span-1 min-h-[140px] border border-slate-800 bg-slate-900/30 flex-col items-center justify-center gap-3 relative overflow-hidden group">
                         <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-400/80"></div>
                         <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-red-400/80"></div>
                         <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-red-400/80"></div>
@@ -137,6 +134,17 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                         v1.0.2 [Stable]
                     </div>
                 </div>
+            </div>
+
+            {/* mobile only EMERGENCY OVERRIDE */}
+            <div className="flex justify-end fixed bottom-6 right-6 z-100">
+                <button
+                    onClick={onSummon}
+                    className=" md:hidden group relative w-14 h-14 rounded-full bg-slate-900/90 backdrop-blur-sm border-2 border-slate-700 active:border-red-500 transition-all shadow-[0_0_15px_rgba(0,0,0,0.8)] active:scale-95 flex items-center justify-center"
+                    >
+                    <div className="absolute inset-0 rounded-full bg-red-500/20 opacity-80 animate-pulse"></div>
+                    <Ghost size={24} className="text-red-400 opacity-90 transition-colors z-10" />
+                </button>
             </div>
 
             {/* Force hide browser scrollbar*/}

@@ -62,7 +62,7 @@ export default function Home() {
           </div>
 
           <div className="overflow-y-auto bg-slate-900/80 p-5 relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border border-slate-800">
-            <Main onSummon={() => setIsSpideyHere(true)} />
+            <Main onSummon={() => setIsSpideyHere(prev => !prev)} />
           </div>
         </div>
 
