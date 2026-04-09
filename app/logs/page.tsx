@@ -12,6 +12,18 @@ import { useEffect, useState } from "react";
 
 const commitGroups = [
   {
+    date: "Apri 09, 2026", 
+    commits: [
+      { id: "b8df4c0", message: "Shortlisted(Internship): Got shortlisted among 12 students to be able to give OA of adobe (1 lakh/month) ", author: "sourav4243", timestamp: "2026-04-09T16:40:00", verified: true }
+    ]
+  },
+  {
+    date: "Apri 09, 2026", 
+    commits: [
+      { id: "cc0257a", message: "Shortlisted(Hackathon): Cleared round 2 of Deloitte hacksplosion. One of 3 teams selected from muj. One of 60 teams selected all over India", author: "sourav4243", timestamp: "2026-04-09T15:39:00", verified: true }
+    ]
+  },
+  {
     date: "Mar 08, 2026", 
     commits: [
       { id: "a8014be", message: "project(LitSync): Release LitSync v1.0.0", author: "sourav4243", timestamp: "2026-03-08T23:48:00", verified: true }
