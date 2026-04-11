@@ -9,6 +9,23 @@ export type TrackData = {
     url: string;
 } | null;
 
+/**
+ * Fetches album artwork from our server-side /api/artwork route.
+ * The route tries iTunes Search API which has great coverage for
+ * Hindi / Bollywood songs that Last.fm often lacks art for.
+ */
+async function fetchFallbackArtwork(track: string, artist: string): Promise<string> {
+    try {
+        const params = new URLSearchParams({ track, artist });
+        const res = await fetch(`/api/artwork?${params}`);
+        if (!res.ok) return '';
+        const data = await res.json();
+        return data.image ?? '';
+    } catch {
+        return '';
+    }
+}
+
 export const useLastFm = () => {
     const [track, setTrack] = useState<TrackData>(null);
     const [loading, setLoading] = useState(true);
@@ -37,12 +54,29 @@ export const useLastFm = () => {
                 
                 if (data.recenttracks?.track && data.recenttracks.track.length > 0) {
                     const latest = data.recenttracks.track[0];
+                    const name: string = latest.name;
+                    const artist: string = latest.artist["#text"];
+                    const album: string = latest.album["#text"];
+
+                    // Last.fm image — often missing for Hindi songs
+                    let image: string = latest.image && latest.image[2] ? latest.image[2]["#text"] : "";
+
+                    // If Last.fm gave us nothing (or the known placeholder), fetch from iTunes
+                    const isBlankImage =
+                        !image ||
+                        image.includes('2a96cbd8b46e442fc41c2b86b821562f') || // Last.fm's generic placeholder hash
+                        image.trim() === '';
+
+                    if (isBlankImage) {
+                        image = await fetchFallbackArtwork(name, artist);
+                    }
+
                     setTrack({
                         isPlaying: latest["@attr"]?.nowplaying === "true",
-                        name: latest.name,
-                        artist: latest.artist["#text"],
-                        album: latest.album["#text"],
-                        image: latest.image && latest.image[2] ? latest.image[2]["#text"] : "",
+                        name,
+                        artist,
+                        album,
+                        image,
                         url: latest.url,
                     });
                 }
