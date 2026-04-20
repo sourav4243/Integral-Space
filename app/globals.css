@@ -86,3 +86,192 @@ body {
   white-space: nowrap;
   pointer-events: none;
 }
+
+/* ═══════════════════════════════════════════
+   SPIDER-MAN PS5 GAME UI THEME
+   Advanced Suit palette — /projects page
+   ═══════════════════════════════════════════ */
+
+.spidey-theme {
+  --sp-bg: #06101e;
+  --sp-panel: rgba(12, 22, 42, 0.88);
+  --sp-panel-solid: #0c162a;
+  --sp-red: #e63946;
+  --sp-red-glow: rgba(230, 57, 70, 0.4);
+  --sp-white: #f1faee;
+  --sp-blue: #1d3557;
+  --sp-blue-light: #264b7a;
+  --sp-border: rgba(100, 140, 200, 0.15);
+  --sp-text-dim: rgba(160, 180, 210, 0.6);
+  --sp-accent-green: #2ecc71;
+}
+
+/* Chamfered card with angled corners */
+.chamfered-card {
+  clip-path: polygon(
+    12px 0%, calc(100% - 12px) 0%,
+    100% 12px, 100% calc(100% - 12px),
+    calc(100% - 12px) 100%, 12px 100%,
+    0% calc(100% - 12px), 0% 12px
+  );
+}
+
+.chamfered-card-lg {
+  clip-path: polygon(
+    20px 0%, calc(100% - 20px) 0%,
+    100% 20px, 100% calc(100% - 20px),
+    calc(100% - 20px) 100%, 20px 100%,
+    0% calc(100% - 20px), 0% 20px
+  );
+}
+
+/* Spider-sense pulsing border */
+@keyframes spider-sense-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 1px var(--sp-border), inset 0 0 30px rgba(230, 57, 70, 0);
+  }
+  50% { 
+    box-shadow: 0 0 15px 2px var(--sp-red-glow), inset 0 0 30px rgba(230, 57, 70, 0.05);
+  }
+}
+
+.spider-sense-active {
+  animation: spider-sense-pulse 0.6s ease-in-out infinite;
+}
+
+/* Screen shake on card impact */
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-3px, -2px); }
+  20% { transform: translate(3px, 1px); }
+  30% { transform: translate(-2px, 3px); }
+  40% { transform: translate(2px, -1px); }
+  50% { transform: translate(-1px, 2px); }
+  60% { transform: translate(1px, -2px); }
+  70% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+.shake {
+  animation: screen-shake 0.3s ease-out;
+}
+
+/* JJJ Ticker scroll */
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-text {
+  animation: ticker-scroll 35s linear infinite;
+  white-space: nowrap;
+}
+
+/* Web strand draw animation */
+@keyframes web-draw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.web-strand {
+  stroke-dasharray: 1000;
+  animation: web-draw 0.3s ease-out forwards;
+}
+
+/* Twinkling city lights overlay */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes twinkle-slow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.65; }
+}
+
+/* Spider drone spin */
+@keyframes drone-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.drone-spinning {
+  animation: drone-spin 2s linear infinite;
+}
+
+/* Spider-sense wavy lines around element */
+@keyframes sense-wave {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Backpack un-web animation */
+@keyframes web-snap {
+  0% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.5; transform: scaleY(0.3); }
+  100% { opacity: 0; transform: scaleY(0) translateY(-20px); }
+}
+
+.web-snapping {
+  animation: web-snap 0.4s ease-in forwards;
+}
+
+/* Hexagonal tech badge */
+.hex-badge {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Accent line decorators */
+.accent-line-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sp-red), transparent);
+}
+
+.accent-line-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sp-red), transparent);
+}
+
+/* Status indicator animations */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-live {
+  animation: status-pulse 1.5s ease-in-out infinite;
+}
+
+/* Reticle cursor for Spidey page */
+.spidey-cursor {
+  cursor: crosshair;
+}
+
+/* Spidey page scrollbar */
+.spidey-theme::-webkit-scrollbar {
+  width: 4px;
+}
+
+.spidey-theme::-webkit-scrollbar-track {
+  background: var(--sp-bg);
+}
+
+.spidey-theme::-webkit-scrollbar-thumb {
+  background: var(--sp-red);
+  border-radius: 2px;
+}
+
+.spidey-theme {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sp-red) var(--sp-bg);
+}
