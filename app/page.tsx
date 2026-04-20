@@ -1,13 +1,12 @@
-"use client"; // Ensure this is at the top since we use state
+"use client";
 
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion"; // For the exit animation
+import { AnimatePresence } from "framer-motion";
 
 import { Nav } from "@/components/Nav";
 import { Main } from "@/components/Main";
 import CodingStats from "@/components/CodingStats";
 import { MusicPlayer } from "@/components/MusicPlayer";
-import SystemFetch from "@/components/SystemFetch";
 import GifShrine from "@/components/GifShrine";
 import ArtistCorner from "@/components/ArtistCorner";
 import Spiderman from "@/components/Spiderman";
@@ -70,9 +69,6 @@ export default function Home() {
         <div className="hidden lg:flex flex-col col-span-3 gap-4 h-full overflow-none scrollbar-none pb-10">
           <div className="w-full shrink-0 relative">
             <MusicPlayer />
-          </div>
-          <div className="w-full shrink-0 border border-slate-800 bg-slate-900/50 p-2 relative shadow-lg">
-            <SystemFetch />
           </div>
           <div className="w-fit shrink-0">
             <GifShrine />
