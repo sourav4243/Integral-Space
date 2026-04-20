@@ -114,8 +114,8 @@ export default function ArtistCorner() {
                 src={`/sketches/skt${currentIndex}.jpg`}
                 alt={`Sketch #${currentIndex}`}
                 width={500}
-                height={0}
-                className="w-48 sm:w-56 lg:w-[18vw] h-auto object-contain"
+                height={500}
+                className="w-48 sm:w-56 lg:w-[18vw] h-48 sm:h-56 lg:h-[18vw] object-contain"
                 priority
                 draggable={false}
              />

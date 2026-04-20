@@ -5,7 +5,7 @@ import { AnimatePresence } from "framer-motion"; // For the exit animation
 
 import { Nav } from "@/components/Nav";
 import { Main } from "@/components/Main";
-import MatrixRain from "@/components/MatrixRain";
+import CodingStats from "@/components/CodingStats";
 import { MusicPlayer } from "@/components/MusicPlayer";
 import SystemFetch from "@/components/SystemFetch";
 import GifShrine from "@/components/GifShrine";
@@ -37,8 +37,8 @@ export default function Home() {
 
         {/* LEFT PANEL */}
         <div className="hidden lg:flex flex-col col-span-3 gap-6 h-full overflow-hidden scrollbar-none pb-10">
-          <div className="h-86 w-full shrink-0 border border-slate-800 bg-slate-900/80 shadow-md">
-            <MatrixRain />
+          <div className="min-h-[380px] w-full shrink-0 border border-slate-800 bg-slate-900/80 shadow-md">
+            <CodingStats />
           </div>
 
           <div className="shrink-0 transform hover:scale-[1.02] transition-transform duration-300 relative">
