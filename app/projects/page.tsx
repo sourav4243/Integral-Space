@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import bgImg from "../../public/projects-assets/background.png";
 import { Bangers, Kalam, Luckiest_Guy } from "next/font/google";
 import { ArrowLeft, ExternalLink, Github, FileVideo, Cpu, Layers, Terminal, Smartphone, Network, Database, Music, Wallet } from "lucide-react";
 import { useSpideyAudio } from "../../hooks/spidey-audio";
@@ -186,7 +187,7 @@ export default function Projects() {
             {/* Global Background */}
             <div className="fixed inset-0 z-0">
                 <Image
-                    src="/projects-assets/background.png"
+                    src={bgImg}
                     alt="Comic Background"
                     fill
                     className="object-cover"
@@ -286,7 +287,7 @@ export default function Projects() {
                                 </h2>
                             </div>
                             {/* Decorative comic dots edge */}
-                            <div className="absolute right-[4px] border-y-4 border-r-4 border-black border-l-0 opacity-100 pointer-events-none bg-white" style={{ width: '20px', height: '100%', top:0, bottom:0, right: -16 }}>
+                            <div className="absolute right-1 border-y-4 border-r-4 border-black border-l-0 opacity-100 pointer-events-none bg-white" style={{ width: '20px', height: '100%', top:0, bottom:0, right: -16 }}>
                                 <div className="w-full h-full" style={{ backgroundImage: 'radial-gradient(#000 30%, transparent 30%)', backgroundSize: '8px 8px' }} />
                             </div>
                         </div>
@@ -323,7 +324,6 @@ export default function Projects() {
                                         STATUS: {activeProject.status} | TYPE: {activeProject.type}
                                     </div>
                                 </div>
-                                {/* Icon Removed */}
                             </div>
                             
                             <div className="mb-4">
@@ -337,7 +337,7 @@ export default function Projects() {
                                 <h3 className={`${bangers.className} text-3xl text-black mb-4`}>POWERS:</h3>
                                 <div className="flex flex-wrap gap-3">
                                     {activeProject.tech.map((t, i) => (
-                                        <span key={t} className={`px-4 py-1 flex items-center justify-center font-bold text-white border-4 border-black shadow-[4px_4px_0px_#000] ${bangers.className} text-xl tracking-wider ${COLORS[(i+2) % COLORS.length]} rotate-[-2deg]`}>
+                                        <span key={t} className={`px-4 py-1 flex items-center justify-center font-bold text-white border-4 border-black shadow-[4px_4px_0px_#000] ${bangers.className} text-xl tracking-wider ${COLORS[(i+2) % COLORS.length]} -rotate-2`}>
                                             {t}
                                         </span>
                                     ))}

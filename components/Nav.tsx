@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import bannerImg from "../public/Integral-space.jpg";
 import { Rubik_Distressed } from "next/font/google";
 
 const rubicdistressed = Rubik_Distressed({
@@ -21,7 +22,8 @@ export const Nav = () => {
             <div className="p-1 border border-slate-700 bg-black/50 w-full max-w-[850px] mb-4 relative">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.4)_50%)] bg-size-[100%_4px] pointer-events-none z-10 opacity-50"></div>
                 <Image
-                    src="/Integral-space.jpg"
+                    src={bannerImg}
+                    placeholder="blur"
                     width={850}
                     height={35}
                     alt="banner"
