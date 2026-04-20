@@ -32,7 +32,7 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
 
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29371a_1px,transparent_1px),linear-gradient(to_bottom,#1f29371a_1px,transparent_1px)] bg-size-[24px_24px] opacity-20 pointer-events-none"></div>
 
-                    <div className="flex space-x-2 mb-4 items-center text-cyan-500 relative z-10">
+                    <div className="flex space-x-2 mb-3 items-center text-cyan-500 relative z-10">
                         <TerminalIcon size={18} />
                         <h1 className="text-sm font-bold tracking-wider">Who am I?</h1>
                     </div>
@@ -40,21 +40,20 @@ export const Main = ({ onSummon }: { onSummon: () => void }) => {
                     <div className="relative z-10">
                         <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left">
 
-                            <div className="relative shrink-0">
-                                <Link href="https://github.com/sourav4243" target="_blank" className="group/img relative w-24 h-24 bg-slate-900/50 border-2 border-slate-700 hover:border-cyan-500 transition-all flex items-center justify-center shadow-xl overflow-hidden">
-                                    <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
-                                    <Image
-                                        src="/git.png"
-                                        height={60}
-                                        width={60}
-                                        alt="git"
-                                        className="opacity-80 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-300 grayscale group-hover/img:grayscale-0"
-                                        draggable="false"
-                                    />
-                                </Link>
+                            <div className="relative shrink-0 flex items-center justify-center">
+                                <div className="text-[12px] md:text-[14px] leading-[1.1] font-bold text-transparent bg-clip-text bg-[linear-gradient(to_bottom,#34d399,#0891b2)] opacity-100 font-mono tracking-tighter drop-shadow-sm select-none">
+                                        <pre>{`
+      /\\       
+     /  \\     
+    /\\   \\     
+   / > ω <\\    
+  /   __   \\   
+ / __|  |__-\\  
+/_-''    ''-_\\`}</pre>
+                                </div>
                             </div>
 
-                            <div className="flex flex-col justify-center pt-1 items-center sm:items-start">
+                            <div className="flex flex-col justify-center pt-3 items-center sm:items-start">
                                 <h2 className="font-bold text-slate-100 text-2xl tracking-tight mb-2 pt-0 sm:pt-1">Sourav Kumar</h2>
 
                                 <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
