@@ -10,6 +10,7 @@ import { MusicPlayer } from "@/components/MusicPlayer";
 import GifShrine from "@/components/GifShrine";
 import ArtistCorner from "@/components/ArtistCorner";
 import Spiderman from "@/components/Spiderman";
+import GalleryStackWidget from "@/components/GalleryStackWidget";
 import Image from "next/image";
 import Link from "next/link";
 import { MobileMusicTray } from "@/components/MobileMusicTray";
@@ -70,6 +71,11 @@ export default function Home() {
           <div className="w-full shrink-0 relative">
             <MusicPlayer />
           </div>
+          
+          <div className="w-full shrink-0 relative">
+            <GalleryStackWidget />
+          </div>
+
           <div className="w-fit shrink-0">
             <GifShrine />
           </div>
