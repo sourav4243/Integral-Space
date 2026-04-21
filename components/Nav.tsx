@@ -37,6 +37,7 @@ export const Nav = () => {
                 {[
                     { name: 'home', path: '/' },
                     { name: 'projects', path: '/projects' },
+                    { name: 'gallery', path: '/gallery' },
                     { name: 'log', path: '/logs' },
                 ].map((item) => (
                     <li key={item.name} className="group relative">
