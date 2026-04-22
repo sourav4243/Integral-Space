@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Jersey_10 } from "next/font/google";
 
@@ -45,12 +45,33 @@ const GlitterBurst = ({ x, y }: { x: number; y: number }) => {
   );
 };
 
+const CLOUDINARY_URLS: Record<number, string> = {
+  1: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796793/skt1_ceafsx.jpg",
+  2: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796849/skt8_d9acgd.jpg",
+  3: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796818/skt4_vm7qj5.jpg",
+  4: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796813/skt3_limgik.jpg",
+  5: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796833/skt5_gnx1ih.jpg",
+  6: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796855/skt9_ty8vq2.jpg",
+  7: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796826/skt6_t0obnv.jpg",
+  8: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796838/skt7_lee07s.jpg",
+  9: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796804/skt2_lvzedk.jpg",
+  10: "https://res.cloudinary.com/dk8hb1vdy/image/upload/q_auto,f_auto/v1776796864/skt10_agsmy9.jpg",
+};
+
 export default function ArtistCorner() {
   const TOTAL_SKETCHES = 10;
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
-  
   const [glitters, setGlitters] = useState<{id: number, x: number, y: number}[]>([]);
+  const [failedIndices, setFailedIndices] = useState<Set<number>>(new Set());
+
+  // Silently preload all Cloudinary sketches into the browser cache
+  useEffect(() => {
+    Object.values(CLOUDINARY_URLS).forEach((url) => {
+      const img = new window.Image();
+      img.src = url;
+    });
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -71,6 +92,18 @@ export default function ArtistCorner() {
       setIsAnimating(false);
     }, 150);
   };
+
+  const handleImageError = () => {
+    setFailedIndices((prev) => {
+      const next = new Set(prev);
+      next.add(currentIndex);
+      return next;
+    });
+  };
+
+  const currentSrc = failedIndices.has(currentIndex) 
+    ? `/sketches/skt${currentIndex}.jpg` 
+    : CLOUDINARY_URLS[currentIndex];
 
   return (
     <div 
@@ -111,13 +144,15 @@ export default function ArtistCorner() {
 
         <div className="w-full bg-slate-50 border border-slate-100 overflow-hidden relative flex justify-center">
              <Image 
-                src={`/sketches/skt${currentIndex}.jpg`}
+                src={currentSrc}
                 alt={`Sketch #${currentIndex}`}
                 width={500}
                 height={500}
                 className="w-48 sm:w-56 lg:w-[18vw] h-48 sm:h-56 lg:h-[18vw] object-contain"
                 priority
                 draggable={false}
+                unoptimized={true}
+                onError={handleImageError}
              />
         </div>
 
